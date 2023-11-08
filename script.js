@@ -1,6 +1,16 @@
 const myLibrary = [];
 const containerDiv = document.querySelector(".container");
-let j = 0;
+const openButton = document.querySelector("[data-open-modal]");
+const closeButton = document.querySelector("[data-close-modal]");
+const modal = document.querySelector("[data-modal]");
+
+openButton.addEventListener("click", () => {
+    modal.showModal();
+})
+
+closeButton.addEventListener("click", () => {
+    modal.close();
+})
 
 function Book (name, author, pageCount, readStatus) {
     this.name = name;
@@ -17,15 +27,18 @@ function addBookToLibrary() {
     const bookOne = new Book ("Hero", "bookAuthor", "bookPageCount", "bookReadStatus");
     const bookTwo = new Book ("The Hobbit", "bookAuthor", "bookPageCount", "bookReadStatus");
     const bookThree = new Book ("Great Expectations", "bookAuthor", "bookPageCount", "bookReadStatus");
+    const bookFour = new Book ("Famous Five", "bookAuthor", "bookPageCount", "bookReadStatus");
     myLibrary.push(bookOne);
     myLibrary.push(bookTwo);
     myLibrary.push(bookThree);
+    myLibrary.push(bookFour);
 }
 
 addBookToLibrary();
 displayBooks ();
 
 function displayBooks () {
+    let j = 0;
     for (i = 0; i < myLibrary.length; i++) {
         const bookCard = document.createElement("div");
         bookCard.classList.add("book-card");
@@ -47,6 +60,7 @@ function displayBooks () {
                 eachBook.setAttribute("data-index", j);
                 j++;
             })
+            j = 0;
         })
     }
 }
