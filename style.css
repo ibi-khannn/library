@@ -1,0 +1,25 @@
+* {
+    margin: 0;
+    padding: 0;
+    white-space: pre-line;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    padding: 3%;
+    gap: 2%;
+}
+
+#new-book-btn {
+    grid-column: 1 / -1;
+    padding: 1%;
+    margin-bottom: 1%;
+    width: 10%;
+}
+
+.book-card {
+    background-color: yellow;
+    padding: 5%;
+    text-align: center;
+}
